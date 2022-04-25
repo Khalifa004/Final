@@ -1,0 +1,31 @@
+forever(function () {
+    if (input.acceleration(Dimension.Z) > 250) {
+        light.setAll(0x00ff00)
+        console.logValue("accel", input.acceleration(Dimension.Z))
+        music.playMelody("- - - - - - - G ", 59)
+        music.setVolume(140)
+    } else if (input.acceleration(Dimension.Z) < 250) {
+        light.showAnimation(light.sparkleAnimation, 500)
+        music.stopAllSounds()
+    }
+})
+forever(function () {
+    if (input.acceleration(Dimension.Z) > 1350) {
+        light.setAll(0xff0000)
+        console.logValue("accel", input.acceleration(Dimension.Z))
+        music.setVolume(140)
+        music.playMelody("C5 - - - - - - - ", 120)
+    } else if (input.acceleration(Dimension.Z) < 250) {
+        light.showAnimation(light.sparkleAnimation, 500)
+        music.stopAllSounds()
+    }
+})
+forever(function () {
+    if (input.buttonA.isPressed()) {
+        light.setBrightness(0)
+        music.setVolume(0)
+    } else if (input.buttonB.isPressed()) {
+        light.setBrightness(100)
+        music.setVolume(74)
+    }
+})
